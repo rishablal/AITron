@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<div class='container'>
+<h2>{{userInfo.user}}</h2>
+<img src='{{userInfo.profile}}' height=150 width=150>
+<br>
+{{#if self}}
+<form method='POST' action='{{userInfo.user}}'>
+Image URL: <input type='text' name='image'>
+<input type='submit' value='Update'>
+</form>
+{{/if}}
+<br>
+Wins: {{userInfo.win}}<br>
+Losses: {{userInfo.lose}}<br><br>
+<a href='/tron'>Back</a>
+</div>

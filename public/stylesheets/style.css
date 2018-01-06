@@ -1,0 +1,113 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.profileIcon {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+}
+
+.errorDiv {
+	color: red;
+	display: none;
+}
+
+.lobby {
+	position: absolute;
+	top: 5;
+	bottom: 5;
+	left: 10;
+	right: 10;
+	height: 90%;
+	width: 90%;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.lobbyCol {
+	float: left;
+	height: 100%;
+	width: 33.33%;
+}
+
+.lobbyCol.scroll {
+	overflow: scroll;
+}
+
+.userDiv {
+	float: top;
+	height: 35px;
+	width: 100%;
+	border: 1px solid black;
+}
+
+#instructDiv {
+	color: red;
+}
+
+.gameDiv {
+	float: top;
+	height: 45px;
+	width: 100%;
+	border: 1px solid black;
+}
+
+.gameDiv:hover {
+	background-color: yellow;
+}
+
+.mainView {
+	display: inline-block;
+	margin-top: 45px;
+}
+
+.highScoresView {
+	display: none;
+}
+
+.highScoresView.scroll {
+	overflow: scroll;
+}
+
+#highScores {
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+.game {
+	display: none;
+}
+
+.gameInfoView {
+	display: none;
+	height: 100%;
+	width: 100%;
+	border: 1px solid blue;
+	text-align: center;
+}
+
+.gameCanvas {
+	display: inline-block;
+	border: 1px solid black;
+}
+
+#leaveGameBtn {
+	display: inline-block;
+	height: 30px;
+	width: 100px;
+}
+
+#leaveLobbyGameBtn {
+	display: none;
+}

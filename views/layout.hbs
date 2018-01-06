@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AITron</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    {{#if user}}
+    Logged in as <a id='userName' href='user/{{user.username}}'>{{user.username}}</a><img class='profileIcon' src='{{profilePic}}'><br>
+    <a href='/signOut'>Log Out</a>
+    {{/if}}
+
+    <center>
+    <h1>AITron</h1>
+
+    {{{body}}}
+  </center>
+  </body>
+</html>
