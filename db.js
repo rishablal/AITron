@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 	dbconf = conf.dbconf;
 }
 else {
-	dbconf = 'mongodb://localhost/tron';
+	dbconf = process.env.MONGODB_URI || 'mongodb://localhost/tron';
 }
 
 mongoose.connect(dbconf);
