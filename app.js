@@ -198,36 +198,32 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('getData', function(playerInfo) {
-		if ((Games[playerInfo.host].timer + 1) === playerInfo.timer) {
-			Games[playerInfo.host].next[playerInfo.player] = true;
-
-			if (!Games[playerInfo.host].directions.hasOwnProperty(playerInfo.timer) && !Games[playerInfo.host].updating) {
-				Games[playerInfo.host].updating = true;
-				
-				let readyCount = 0;
-				for (let p in Games[playerInfo.host].next) {
-					if (Games[playerInfo.host].live[p]) {
-						if (Games[playerInfo.host].next[p]) {
-							readyCount++;
-						}
-						else {
-							break;
-						}
-					}
-					else {
+		if (!Games[playerInfo.host].directions.hasOwnProperty(playerInfo.timer) && !Games[playerInfo.host].updating) {
+			Games[playerInfo.host].updating = true;
+			
+			let readyCount = 0;
+			for (let p in Games[playerInfo.host].next) {
+				if (Games[playerInfo.host].live[p]) {
+					if (Games[playerInfo.host].next[p]) {
 						readyCount++;
 					}
-				}
-				
-				if (readyCount === Object.keys(Games[playerInfo.host].next).length) { // or true? why?
-					Games[playerInfo.host].timer++;
-					Games[playerInfo.host].directions[Games[playerInfo.host].timer] = JSON.parse(JSON.stringify(Games[playerInfo.host].nextDirections));
-					for (let p in Games[playerInfo.host].next) {
-						Games[playerInfo.host].next[p] = false;
+					else {
+						break;
 					}
 				}
-				Games[playerInfo.host].updating = false;
+				else {
+					readyCount++;
+				}
 			}
+			
+			if (readyCount === Object.keys(Games[playerInfo.host].next).length) { // or true? why?
+				Games[playerInfo.host].timer++;
+				Games[playerInfo.host].directions[Games[playerInfo.host].timer] = JSON.parse(JSON.stringify(Games[playerInfo.host].nextDirections));
+				for (let p in Games[playerInfo.host].next) {
+					Games[playerInfo.host].next[p] = false;
+				}
+			}
+			Games[playerInfo.host].updating = false;
 		}
 		if (Games[playerInfo.host].timer >= playerInfo.timer) {
 			socket.emit('receiveData', Games[playerInfo.host].directions[playerInfo.timer]);
