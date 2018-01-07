@@ -1,4 +1,4 @@
-var INTERVAL = 40;
+var INTERVAL = 20;
 var leaveGameListener;
 var startGameListener;
 var joinGameListener;
