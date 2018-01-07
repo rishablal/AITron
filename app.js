@@ -194,9 +194,6 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('directionChanged', function(playerInfo) {
-		while (Games[playerInfo.host].updating) {
-			// wait for update to finish
-		}
 		Games[playerInfo.host].nextDirections[playerInfo.player] = playerInfo.direction;
 	});
 
