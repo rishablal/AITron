@@ -200,6 +200,7 @@ io.on('connection', function(socket) {
 	socket.on('getData', function(playerInfo) {
 		if (!Games[playerInfo.host].directions.hasOwnProperty(playerInfo.timer) && !Games[playerInfo.host].updating) {
 			Games[playerInfo.host].updating = true;
+			Games[playerInfo.host].next[playerInfo.player] = true;
 			
 			let readyCount = 0;
 			for (let p in Games[playerInfo.host].next) {
