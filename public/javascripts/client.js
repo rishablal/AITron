@@ -327,8 +327,6 @@ function main() {
 				gameCanvas.updatePosition(player, directions[player]);
 			}
 		}
-		gameCanvas.getCollisions();
-		gameCanvas.getWinner();
 		gameCanvas.timer++;
 	});
 
