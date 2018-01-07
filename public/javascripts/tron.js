@@ -47,8 +47,6 @@ Game.prototype = {
 	sendData: function() {
 		this.removedPlayers = [];
 		this.socket.emit('getData', { 'host': this.host, 'player': this.localPlayer, 'timer': this.timer });
-		this.getCollisions();
-		this.getWinner();
 	},
 
 	newGameBtnClick: function(evt) {
