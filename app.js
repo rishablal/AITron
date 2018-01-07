@@ -194,6 +194,9 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('directionChanged', function(playerInfo) {
+		while (Games[playerInfo.host].updating) {
+			// wait for update to finish
+		}
 		Games[playerInfo.host].nextDirections[playerInfo.player] = playerInfo.direction;
 	});
 
@@ -217,7 +220,7 @@ io.on('connection', function(socket) {
 				}
 			}
 			
-			if (readyCount === Object.keys(Games[playerInfo.host].next).length) { // or true? why?
+			if (readyCount === Object.keys(Games[playerInfo.host].next).length) {
 				Games[playerInfo.host].timer++;
 				Games[playerInfo.host].directions[Games[playerInfo.host].timer] = JSON.parse(JSON.stringify(Games[playerInfo.host].nextDirections));
 				for (let p in Games[playerInfo.host].next) {
