@@ -232,6 +232,9 @@ io.on('connection', function(socket) {
 		if (Games[playerInfo.host].timer >= playerInfo.timer) {
 			socket.emit('receiveData', Games[playerInfo.host].directions[playerInfo.timer]);
 		}
+		else {
+			Games[playerInfo.host].next[playerInfo.player] = true;
+		}
 	});
 
 	socket.on('disconnect', function() {
